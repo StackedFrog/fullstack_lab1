@@ -3,6 +3,9 @@ import mongoose from "mongoose"
 import dotenv from "dotenv";
 
 const app = express()
+
+app.use(express.static("public"))
+
 dotenv.config()
 
 // connect db
@@ -123,7 +126,7 @@ app.delete("/api/dishes/:id", async (req, res, next) => {
 // shuts down the server and closes the db connection 
 async function shutdown(){
     server.close()
-    await mongoose.close()
+    await mongoose.disconnect()
 }
 
 process.on("SIGINT", shutdown)

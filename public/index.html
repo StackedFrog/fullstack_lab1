@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Database</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Recipe Database</h1>
+            <p>Manage your favorite dishes and recipes</p>
+        </header>
+
+        <section class="add-recipe">
+            <h2>Add New Recipe</h2>
+            <form id="recipeForm">
+                <div class="form-group">
+                    <label for="name">Dish Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ingredients">Ingredients (comma separated):</label>
+                    <textarea id="ingredients" name="ingredients" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="prepSteps">Preparation Steps (comma separated):</label>
+                    <textarea id="prepSteps" name="prepSteps" required></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="prepTime">Prep Time (minutes):</label>
+                        <input type="number" id="prepTime" name="prepTime" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cookingTime">Cooking Time (minutes):</label>
+                        <input type="number" id="cookingTime" name="cookingTime" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="origin">Origin:</label>
+                    <input type="text" id="origin" name="origin" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="difficulty">Difficulty:</label>
+                        <select id="difficulty" name="difficulty" required>
+                            <option value="Easy">Easy</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hard">Hard</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="spiceLevel">Spice Level:</label>
+                        <select id="spiceLevel" name="spiceLevel" required>
+                            <option value="Mild">Mild</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hot">Hot</option>
+                            <option value="Extra Hot">Extra Hot</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn">Add Recipe</button>
+            </form>
+        </section>
+
+        <section class="recipes-list">
+            <h2>All Recipes</h2>
+            <div class="table-container">
+                <table id="recipesTable">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Ingredients</th>
+                            <th>Prep Time</th>
+                            <th>Cooking Time</th>
+                            <th>Origin</th>
+                            <th>Difficulty</th>
+                            <th>Spice Level</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recipesTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </div>
+
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Recipe</h2>
+            <form id="editForm">
+                <input type="hidden" id="editId">
+                
+                <div class="form-group">
+                    <label for="editName">Dish Name:</label>
+                    <input type="text" id="editName" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editIngredients">Ingredients (comma separated):</label>
+                    <textarea id="editIngredients" name="ingredients" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editPrepSteps">Preparation Steps (comma separated):</label>
+                    <textarea id="editPrepSteps" name="prepSteps" required></textarea>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editPrepTime">Prep Time (minutes):</label>
+                        <input type="number" id="editPrepTime" name="prepTime" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="editCookingTime">Cooking Time (minutes):</label>
+                        <input type="number" id="editCookingTime" name="cookingTime" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="editOrigin">Origin:</label>
+                    <input type="text" id="editOrigin" name="origin" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editDifficulty">Difficulty:</label>
+                        <select id="editDifficulty" name="difficulty" required>
+                            <option value="Easy">Easy</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hard">Hard</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="editSpiceLevel">Spice Level:</label>
+                        <select id="editSpiceLevel" name="spiceLevel" required>
+                            <option value="Mild">Mild</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hot">Hot</option>
+                            <option value="Extra Hot">Extra Hot</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn">Update Recipe</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
