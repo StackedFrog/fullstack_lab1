@@ -1,10 +1,23 @@
 import express from "express"
+import mongoose from "mongoose"
 
 const app = express()
 
 // set up database here
+mongoose.connect(process.env.CONNECTION_URL)
 
-const server = app.listen(5000, () => {
+const dishesSchema = new mongoose.Schema({
+    name: {type: String, unique: true},
+    ingredients: [String],
+    prepSteps: [String],
+    prepTime: Number,
+    cookingTime: Number,
+    origin: String,
+    difficulty: String,
+    spiceLevel: String
+})
+
+const server = app.listen(process.env.PORT, () => {
     console.log("running")
 })
 app.use(express.json())
